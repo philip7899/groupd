@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Event %></h1>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:title) %></dt>
+      <dd><pre class="prettyprint"><%= @event.title %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:street_address) %></dt>
+      <dd><pre class="prettyprint"><%= @event.street_address %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:city) %></dt>
+      <dd><pre class="prettyprint"><%= @event.city %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:zip_code) %></dt>
+      <dd><pre class="prettyprint"><%= @event.zip_code %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:starts_at) %></dt>
+      <dd><pre class="prettyprint"><%= @event.starts_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ends_at) %></dt>
+      <dd><pre class="prettyprint"><%= @event.ends_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @event.description %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Street address:</strong>
-  <%= @event.street_address %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              events_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_event_path(@event), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              event_path(@event),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @event.city %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @event.zip_code %>
-</p>
-
-<p>
-  <strong>Starts at:</strong>
-  <%= @event.starts_at %>
-</p>
-
-<p>
-  <strong>Ends at:</strong>
-  <%= @event.ends_at %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
