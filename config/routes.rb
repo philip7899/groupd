@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/index'
+
   resources :events
 
   devise_for :admin_users, ActiveAdmin::Devise.config
